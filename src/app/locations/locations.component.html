@@ -1,0 +1,23 @@
+<div class="container-fluid">
+<div class="well">
+    <h2>Enter a zipcode:</h2>
+    <form (ngSubmit)="onSubmitLocation()" #locationForm="ngForm">
+        <input class="form-control" placeholder="Zipcode" type="text" id="addLocation"
+        required
+        pattern="[0-9]*"
+
+        maxlength="5"
+        [(ngModel)]="zipCode" name="zipcode">
+        <br />
+        <button type="submit" class="btn btn-primary" id="addLocationBtn" [disabled]="!locationForm.form.valid">
+        Add location
+        </button>
+    </form>
+</div>
+
+
+<div *ngFor="let card of weathercards">
+    <weather-display-card [weatherData]="card" (deleteCardOutput)="GetDeleteIndex($event)"></weather-display-card>
+</div>
+
+</div>
