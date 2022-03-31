@@ -44,6 +44,7 @@ export class LocationsComponent implements OnInit {
     localStorage.setItem("zipCodesList", JSON.stringify(zipCodesList));
 
 
+    // Getting the weather data for the new location and adding it to the local array
     this.weatherService.getWeatherDataByZipCode(this.zipCode).subscribe({
       next: (v) => {
         v.zip = this.zipCode;
@@ -61,13 +62,11 @@ export class LocationsComponent implements OnInit {
     let zipCodesList: string[] = JSON.parse(localStorage.getItem("zipCodesList"));
 
     zipCodesList.splice(index, 1);
-    
-
     localStorage.setItem("zipCodesList", JSON.stringify(zipCodesList));
 
-    this.weathercards.splice(index,1);
+    this.weathercards.splice(index,1); // The index of the card to delete is the same in the local array
 
-    this.refreshCards();
+    this.refreshCards(); // Refreshing the cards since one got deleted
 
  }  
 

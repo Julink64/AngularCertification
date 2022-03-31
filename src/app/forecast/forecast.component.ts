@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IForecastData } from '../services/weather';
+import { IForecastData } from '../services/forecast';
 import { WeatherService } from '../services/weather.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class ForecastComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Getting the forecast for the current zip code
     this.route.params.subscribe(params => 
       {
           this.weatherService.getForecast(params['zip']).subscribe({

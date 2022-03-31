@@ -5,7 +5,7 @@
 
     </div>
     <ul class="list-group">
-      <li *ngFor="let forecastline of forecast.list | slice:0:5" class="list-group-item">
+      <li *ngFor="let forecastline of forecast.list | slice:0:5" class="list-group-item"> <!-- We display the forecast for the 5 next days -->
         {{forecastline.dt * 1000 | date : 'EEEE, MMM d'}}
         {{forecastline.weather[0].main}}
         - Min: {{forecastline.temp.min}}
